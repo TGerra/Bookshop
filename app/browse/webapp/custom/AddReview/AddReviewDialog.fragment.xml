@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+   <Dialog
+      title="Оставить отзыв"
+      core:require="{handler: 'bookshop/custom/AddReview/AddReviewDialogHandler'}"
+      validationError="handler.onValidationError"
+      validationSuccess="handler.onValidationSuccess">
+      <f:Form
+         id="addReviewForm"
+         editable="true"
+         title="Детали отзыва">
+         <f:layout>
+            <f:ColumnLayout />
+         </f:layout>
+      </f:Form>
+      <buttons>
+        <Button
+            id="submitReview"
+            text="Отправить"
+            type="Emphasized"
+            press="handler.submit" 
+            enabled="{= !${formErrors>/hasErrors} }"
+            />
+        <Button
+            id="cancelReview"
+            press="handler.cancel"
+            text="Закрыть" />
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>
